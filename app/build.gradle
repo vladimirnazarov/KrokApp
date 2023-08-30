@@ -6,12 +6,14 @@ plugins {
 
 android {
     namespace 'com.ssrlab.audioguide.krokapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
+        viewBinding.enabled = true
+
         applicationId "com.ssrlab.audioguide.krokapp"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

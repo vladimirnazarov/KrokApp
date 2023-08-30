@@ -5,9 +5,71 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     tools:context=".MainActivity"
+    tools:ignore="ContentDescription"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/white"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/main_toolbar_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_back_minimalized"
+            android:background="@drawable/ripple_rounded"
+
+            android:padding="8dp"
+
+            android:layout_marginStart="16dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/main_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="KrokApp"
+            android:textColor="@color/gray_dark"
+            android:textSize="22sp"
+
+            android:layout_marginStart="32dp"
+            android:layout_marginVertical="16dp"
+
+            app:layout_constraintStart_toEndOf="@id/main_toolbar_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:elevation="4dp"
+        app:elevation="4dp"
+
+        app:itemTextColor="@drawable/nav_color_selector"
+        app:itemIconTint="@drawable/nav_color_selector"
+        app:itemRippleColor="@color/transparent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_nav_host"
@@ -20,7 +82,7 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/main_bottom_nav"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
