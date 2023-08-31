@@ -5,7 +5,18 @@
     <string name="places">Places</string>
     <string name="map">Map</string>
     <string name="settings">Settings</string>
+
+    <!--  Settings  -->
     <string name="language">Language</string>
     <string name="about_us">About us</string>
+    <string name="refresh_data">Refresh data</string>
 
+    <!--  Language  -->
+    <string name="choose_language">Choose language</string>
+    <string name="en">English</string>
+    <string name="be">Беларуская</string>
+    <string name="ru">Русский</string>
+
+    <!--  Splash  -->
+    <string name="please_wait">Please wait until we collect all application data</string>
 </resources>

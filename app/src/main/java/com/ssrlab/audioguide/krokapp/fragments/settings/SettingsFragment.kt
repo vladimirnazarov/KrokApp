@@ -34,6 +34,7 @@ class SettingsFragment: BaseFragment() {
     private fun setUpBinding() {
         binding.apply {
             settingsButtonContacts.setOnClickListener { navController.navigate(R.id.contactsFragment) }
+            settingsButtonLanguage.setOnClickListener { mainActivity.showLanguageDialog(true) }
         }
     }
 }
