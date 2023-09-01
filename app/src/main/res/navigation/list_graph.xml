@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list_graph"
+    app:startDestination="@id/fragmentLaunch">
+
+    <fragment
+        android:id="@+id/mainListFragment"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.MainListFragment"
+        android:label="MainListFragment" />
+    <fragment
+        android:id="@+id/fragmentLaunch"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.additional.FragmentSplash"
+        android:label="FragmentLaunch" />
+</navigation>

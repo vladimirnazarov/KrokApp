@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/list_graph"
+        android:title="@string/places"
+        android:icon="@drawable/nav_home_color_selector"/>
+
+    <item
+        android:id="@+id/map_graph"
+        android:title="@string/map"
+        android:icon="@drawable/nav_place_color_selector"/>
+
+    <item
+        android:id="@+id/settings_graph"
+        android:title="@string/settings"
+        android:icon="@drawable/nav_settings_color_selector"/>
+
+</menu>
