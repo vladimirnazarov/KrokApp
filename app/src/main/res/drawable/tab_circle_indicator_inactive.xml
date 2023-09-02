@@ -9,7 +9,7 @@
             android:useLevel="false"
             android:shape="ring">
 
-            <solid android:color="@color/orange_light"/>
+            <solid android:color="@color/orange_ripple"/>
 
         </shape>
 

@@ -2,14 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_graph"
-    app:startDestination="@id/fragmentLaunch">
+    app:startDestination="@id/cityListFragment">
 
     <fragment
-        android:id="@+id/mainListFragment"
-        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.MainListFragment"
-        android:label="MainListFragment" />
+        android:id="@+id/cityListFragment"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.CityListFragment"
+        android:label="cityListFragment" />
     <fragment
-        android:id="@+id/fragmentLaunch"
-        android:name="com.ssrlab.audioguide.krokapp.fragments.additional.FragmentSplash"
-        android:label="FragmentLaunch" />
+        android:id="@+id/pointListFragment"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.PointListFragment"
+        android:label="PointListFragment" />
+    <fragment
+        android:id="@+id/favouritesListFragment"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.FavouritesListFragment"
+        android:label="FavouritesListFragment" />
+    <fragment
+        android:id="@+id/exhibitFragment"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.ExhibitFragment"
+        android:label="ExhibitFragment" />
 </navigation>

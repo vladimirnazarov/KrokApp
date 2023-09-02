@@ -26,6 +26,6 @@ class ContactsFragment: BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        mainActivity.setToolbar(resources.getString(R.string.about_us), true) { mainActivity.onBackPressedDispatcher.onBackPressed() }
+        mainActivity.setToolbar(resources.getString(R.string.about_us), true)
     }
 }

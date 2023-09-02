@@ -36,7 +36,7 @@ object PointClient {
                         val point = PointObject(
                             id = this.getInt("point_id"),
                             name = this.getString("point_name"),
-                            logo = this.getString("logo"),
+                            logo = this.getString("point_logo"),
                             coordinates = parseJsonToMap(this.getString("coordinates")),
                             language = language
                         )
@@ -46,6 +46,8 @@ object PointClient {
                         }
                     }
                 }
+
+                onSuccess()
             }
         })
     }

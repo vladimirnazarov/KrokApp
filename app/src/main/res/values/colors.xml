@@ -11,7 +11,7 @@
 
     <color name="orange_primary">#FF8F45</color>
     <color name="orange_secondary">#CC6623</color>
-    <color name="orange_light">#FFCFA7</color>
+    <color name="orange_ripple">#FFCFA7</color>
     <color name="gray_light">#989898</color>
     <color name="gray_dark">#686868</color>
     <color name="gray_ripple">#99AAAAAA</color>

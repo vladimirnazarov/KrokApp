@@ -28,17 +28,18 @@
         android:layout_height="70dp"
 
         android:text="@string/language"
-        android:textColor="@color/gray_dark"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textAllCaps="false"
 
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/orange_primary"
+
         app:icon="@drawable/ic_language"
         app:iconGravity="textStart"
-        app:iconTint="@color/orange_primary"
+        app:iconTint="@color/white"
 
         app:cornerRadius="24dp"
-        app:rippleColor="@color/orange_light"
+        app:rippleColor="@color/gray_ripple"
 
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="64dp"
@@ -52,18 +53,21 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
 
+        android:visibility="gone"
+
         android:text="@string/refresh_data"
-        android:textColor="@color/gray_dark"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textAllCaps="false"
 
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/orange_primary"
+
         app:icon="@drawable/ic_refresh"
         app:iconGravity="textStart"
-        app:iconTint="@color/orange_primary"
+        app:iconTint="@color/white"
 
         app:cornerRadius="24dp"
-        app:rippleColor="@color/orange_light"
+        app:rippleColor="@color/gray_ripple"
 
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="16dp"
@@ -78,17 +82,18 @@
         android:layout_height="70dp"
 
         android:text="@string/about_us"
-        android:textColor="@color/gray_dark"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textAllCaps="false"
 
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/orange_primary"
+
         app:icon="@drawable/ic_info"
         app:iconGravity="textStart"
-        app:iconTint="@color/orange_primary"
+        app:iconTint="@color/white"
 
         app:cornerRadius="24dp"
-        app:rippleColor="@color/orange_light"
+        app:rippleColor="@color/gray_ripple"
 
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="16dp"

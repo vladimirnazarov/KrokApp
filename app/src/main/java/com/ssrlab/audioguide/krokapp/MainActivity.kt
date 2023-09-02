@@ -1,6 +1,7 @@
 package com.ssrlab.audioguide.krokapp
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,20 +11,18 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ssrlab.audioguide.krokapp.app.MainApplication
-import com.ssrlab.audioguide.krokapp.client.CityClient
-import com.ssrlab.audioguide.krokapp.client.PointClient
 import com.ssrlab.audioguide.krokapp.databinding.ActivityMainBinding
 import com.ssrlab.audioguide.krokapp.databinding.DialogLanguageBinding
 import com.ssrlab.audioguide.krokapp.db.DatabaseClient
 import com.ssrlab.audioguide.krokapp.db.dao.AdditionalDao
 import com.ssrlab.audioguide.krokapp.db.dao.CityDao
+import com.ssrlab.audioguide.krokapp.db.dao.FavouriteDao
 import com.ssrlab.audioguide.krokapp.db.dao.PointDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainApplication: MainApplication
-    private var firstLaunch = false
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
@@ -44,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var cityDao: CityDao
     private lateinit var pointDao: PointDao
+    private lateinit var favouriteDao: FavouriteDao
     private lateinit var additionalDao: AdditionalDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(mainApplication.constPreferences, MODE_PRIVATE)
 
         val locale = sharedPreferences.getString(mainApplication.constLocale, "en")
-        firstLaunch = sharedPreferences.getBoolean(mainApplication.constLaunch, true)
 
         with (sharedPreferences.edit()) {
             putBoolean(mainApplication.constLaunch, false)
@@ -92,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Suppress("DEPRECATION")
-    private fun initLanguageDialog(isCancelable: Boolean, onEndFun: (() -> Unit)? = null) {
+    private fun initLanguageDialog(isCancelable: Boolean, additionalAction: (() -> Unit)? = null) {
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
 
@@ -116,19 +114,19 @@ class MainActivity : AppCompatActivity() {
                 saveLocale("en")
                 dialog.dismiss()
 
-                if (onEndFun != null) onEndFun()
+                if (additionalAction != null) additionalAction()
             }
             dialogLanguageButtonBe.setOnClickListener {
                 saveLocale("be")
                 dialog.dismiss()
 
-                if (onEndFun != null) onEndFun()
+                if (additionalAction != null) additionalAction()
             }
             dialogLanguageButtonRu.setOnClickListener {
                 saveLocale("ru")
                 dialog.dismiss()
 
-                if (onEndFun != null) onEndFun()
+                if (additionalAction != null) additionalAction()
             }
         }
 
@@ -136,7 +134,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpUtils() {
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
         navController = navHostFragment.navController
 
@@ -144,23 +141,16 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.inflateMenu(R.menu.main_graph_menu)
         bottomNavigationView.setupWithNavController(navController)
 
-        val database = Room.databaseBuilder(mainApplication.getContext(), DatabaseClient::class.java, mainApplication.constDatabaseName).build()
+        val database = Room.databaseBuilder(mainApplication.getContext(), DatabaseClient::class.java, mainApplication.constDatabaseName)
+            .fallbackToDestructiveMigration()
+            .build()
         cityDao = database.cityDao()
         pointDao = database.pointDao()
+        favouriteDao = database.favouriteDao()
         additionalDao = database.additionalDao()
     }
 
-    fun loadData(onSuccess: () -> Unit) {
-        val counter = MutableLiveData<Int>()
-        CityClient.getCities(mainApplication.getLocaleString()) { counter.value?.plus(1) }
-        PointClient.getPoints(mainApplication.getLocaleString(), pointDao, scope) { counter.value?.plus(1) }
-
-        counter.observe(this@MainActivity) {
-            if (it == 2) onSuccess()
-        }
-    }
-
-    fun setToolbar(title: String, isBackButtonShown: Boolean = false, isFavouritesButtonShow: Boolean = false, action: () -> Unit) {
+    fun setToolbar(title: String, isBackButtonShown: Boolean = false, isFavouritesButtonShow: Boolean = false, favouriteButtonImageSource: Int = R.drawable.ic_fav_inactive, listNavAction: (() -> Unit)? = null) {
         binding.apply {
             mainToolbarTitle.text = title
 
@@ -170,7 +160,12 @@ class MainActivity : AppCompatActivity() {
             if (isFavouritesButtonShow) mainToolbarFavouritesButton.visibility = View.VISIBLE
             else mainToolbarFavouritesButton.visibility = View.GONE
 
-            mainToolbarBackButton.setOnClickListener { action() }
+            mainToolbarFavouritesButton.setImageResource(favouriteButtonImageSource)
+
+            mainToolbarBackButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+            mainToolbarFavouritesButton.setOnClickListener {
+                if (listNavAction != null) listNavAction()
+            }
         }
     }
 
@@ -186,13 +181,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun intentToSplash() {
+        val intent = Intent(this, SplashActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
     fun getMainApplication() = mainApplication
-    fun isFirstLaunch() = firstLaunch
-    fun showLanguageDialog(isCancelable: Boolean, onEndFun: (() -> Unit)? = null) {
-        initLanguageDialog(isCancelable, onEndFun)
+    fun showLanguageDialog(isCancelable: Boolean, additionalAction: (() -> Unit)? = null) {
+        initLanguageDialog(isCancelable, additionalAction)
     }
     fun cityDao() = cityDao
     fun pointDao() = pointDao
+    fun favouriteDao() = favouriteDao
     fun additionalDao() = additionalDao
     fun getScope() = scope
 }

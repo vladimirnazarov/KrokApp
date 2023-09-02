@@ -46,14 +46,14 @@
             android:layout_height="55dp"
 
             android:text="@string/en"
-            android:textColor="@color/orange_primary"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textAllCaps="false"
 
-            app:backgroundTint="@color/white"
+            app:backgroundTint="@color/orange_primary"
 
             app:cornerRadius="24dp"
-            app:rippleColor="@color/orange_light"
+            app:rippleColor="@color/gray_ripple"
 
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="16dp"
@@ -68,14 +68,14 @@
             android:layout_height="55dp"
 
             android:text="@string/be"
-            android:textColor="@color/orange_primary"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textAllCaps="false"
 
-            app:backgroundTint="@color/white"
+            app:backgroundTint="@color/orange_primary"
 
             app:cornerRadius="24dp"
-            app:rippleColor="@color/orange_light"
+            app:rippleColor="@color/gray_ripple"
 
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="8dp"
@@ -90,14 +90,14 @@
             android:layout_height="55dp"
 
             android:text="@string/ru"
-            android:textColor="@color/orange_primary"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textAllCaps="false"
 
-            app:backgroundTint="@color/white"
+            app:backgroundTint="@color/orange_primary"
 
             app:cornerRadius="24dp"
-            app:rippleColor="@color/orange_light"
+            app:rippleColor="@color/gray_ripple"
 
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="8dp"
