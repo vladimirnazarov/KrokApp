@@ -58,7 +58,10 @@ class PointListFragment: BaseFragment() {
 
                 runOnUiThread {
                     adapter = PointListAdapter(newPointList, favouriteList as ArrayList<FavouriteObject>, mainActivity) {
-                        exhibitVM.setPointObject(it)
+                        exhibitVM.apply {
+                            setPointObject(it)
+                            setButtonValue(true)
+                        }
                         findNavController().navigate(R.id.exhibitFragment)
                     }
                     binding.rvSecondary.layoutManager = LinearLayoutManager(this@apply)

@@ -3,36 +3,40 @@
     <string name="app_name">KrokApp</string>
 
     <!--  Main  -->
-    <string name="places">Places</string>
-    <string name="map">Map</string>
-    <string name="settings">Settings</string>
+    <string name="places">Месцы</string>
+    <string name="map">Карта</string>
+    <string name="settings">Налады</string>
 
     <!--  Settings  -->
-    <string name="language">Language</string>
-    <string name="about_us">About us</string>
-    <string name="refresh_data">Refresh data</string>
-    <string name="developer_title">Developer</string>
-    <string name="developer_info">Speech Synthesis and Recognition Laboratory of United Institute of Informatics Problems of National Academy of Sciences of Belarus</string>
+    <string name="language">Мова</string>
+    <string name="about_us">Аб нас</string>
+    <string name="refresh_data">Абнавіць даныя</string>
+    <string name="developer_title">Распрацоўшчык</string>
+    <string name="developer_info">Лабараторыя сінтэзу і распазнавання мовы Інстытута праблем інфарматыкі Нацыянальнай акадэміі навук Беларусі</string>
     <string name="developer_link"><u>https://ssrlab.by</u></string>
-    <string name="content_title">Content</string>
-    <string name="content_info">The content is prepared with the help of the specialists from the Institute of History of the National Academy of Sciences of Belarus</string>
-    <string name="contact_title">Contact</string>
-    <string name="contact_info">Please, send your proposals, comments and wishes:</string>
+    <string name="content_title">Змест</string>
+    <string name="content_info">Змест падрыхтаваны з дапамогай спецыялістаў Інстытута гісторыі Нацыянальнай акадэміі навук Беларусі</string>
+    <string name="contact_title">Кантакты</string>
+    <string name="contact_info">Калі ласка, дасылаце вашы прапановы, каментары і пажаданні:</string>
     <string name="contact_link"><u>ssrlab221@gmail.com</u></string>
 
     <!--  Language  -->
-    <string name="choose_language">Choose language</string>
+    <string name="choose_language">Выберыце мову</string>
     <string name="en">English</string>
     <string name="be">Беларуская</string>
     <string name="ru">Русский</string>
 
     <!--  Splash  -->
-    <string name="please_wait">Please wait until we collect all the application data</string>
+    <string name="please_wait">Калі ласка, пачакайце, пакуль мы збярэм адзіныя даныя прыкладання</string>
 
     <!--  Points  -->
-    <string name="points">Points</string>
-    <string name="favourites">Favourites</string>
-    <string name="you_havent_added">You haven\'t added any point</string>
-    <string name="exhibit">Exhibit</string>
+    <string name="points">Месцы</string>
+    <string name="favourites">Выбранае</string>
+    <string name="you_havent_added">Вы не дадалі ніводнага месца</string>
+    <string name="exhibit">Экспанат</string>
     <string name="duration_plug">00:00</string>
+
+    <!--  Map  -->
+    <string name="show_exhibition">Паказаць выставу</string>
+    <string name="show_on_the_map">Паказаць на карце</string>
 </resources>

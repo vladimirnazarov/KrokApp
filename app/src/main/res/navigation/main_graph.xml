@@ -7,4 +7,8 @@
     <include app:graph="@navigation/map_graph" />
     <include app:graph="@navigation/list_graph" />
     <include app:graph="@navigation/settings_graph" />
+    <fragment
+        android:id="@+id/exhibitFragment2"
+        android:name="com.ssrlab.audioguide.krokapp.fragments.exhibit.ExhibitFragment"
+        android:label="ExhibitFragment" />
 </navigation>

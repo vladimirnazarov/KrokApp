@@ -116,7 +116,10 @@ class SplashActivity : AppCompatActivity() {
 
     private fun animateLogo() {
         val rotationAnim = AnimationUtils.loadAnimation(this, R.anim.animation_spin)
-        binding.splashText.visibility = View.VISIBLE
+        binding.splashText.apply {
+            visibility = View.VISIBLE
+            text = resources.getText(R.string.please_wait)
+        }
         binding.splashLogo.apply {
             visibility = View.VISIBLE
             startAnimation(rotationAnim)

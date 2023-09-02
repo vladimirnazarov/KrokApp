@@ -12,4 +12,12 @@ class ExhibitViewModel: ViewModel() {
     private var tabLink = ""
     fun setTabLink(link: String) { tabLink = link }
     fun getTabLink() = tabLink
+
+    private var currentObject: PointObject? = null
+    fun getCurrentObject() = currentObject
+    fun setCurrentObject(obj: PointObject?) { currentObject = obj }
+
+    private var buttonValue = false
+    fun getButtonValue() = buttonValue
+    fun setButtonValue(value: Boolean) { buttonValue = value }
 }

@@ -34,4 +34,8 @@
     <string name="you_havent_added">You haven\'t added any point</string>
     <string name="exhibit">Exhibit</string>
     <string name="duration_plug">00:00</string>
+
+    <!--  Map  -->
+    <string name="show_exhibition">Show exhibition</string>
+    <string name="show_on_the_map">Show on the map</string>
 </resources>

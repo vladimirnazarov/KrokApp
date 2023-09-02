@@ -171,15 +171,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun controlNavigationUi(isShowing: Boolean) {
-        binding.apply {
-            if (isShowing) {
-                bottomNavigationView.visibility = View.VISIBLE
-                mainToolbar.visibility = View.VISIBLE
-            } else {
-                bottomNavigationView.visibility = View.GONE
-                mainToolbar.visibility = View.GONE
-            }
-        }
+        if (isShowing) bottomNavigationView.visibility = View.VISIBLE
+        else bottomNavigationView.visibility = View.GONE
     }
 
     fun intentToSplash() {
@@ -209,4 +202,5 @@ class MainActivity : AppCompatActivity() {
     fun favouriteDao() = favouriteDao
     fun additionalDao() = additionalDao
     fun getScope() = scope
+    fun getController() = navController
 }
