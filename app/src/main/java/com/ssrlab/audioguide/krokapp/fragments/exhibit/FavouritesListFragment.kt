@@ -57,9 +57,8 @@ class FavouritesListFragment: BaseFragment() {
 
                 runOnUiThread {
                     adapter = FavouriteListAdapter(newPointList, mainActivity, binding) {
-                        val bundle = Bundle()
-                        bundle.putInt("point_object", it)
-                        findNavController().navigate(R.id.exhibitFragment, bundle)
+                        exhibitVM.setPointObject(it)
+                        findNavController().navigate(R.id.exhibitFragment)
                     }
                     binding.rvFavs.layoutManager = LinearLayoutManager(this@apply)
                     binding.rvFavs.adapter = adapter

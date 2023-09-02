@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -186,6 +187,19 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    fun intentToWeb() {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://ssrlab.by")
+        startActivity(intent)
+    }
+
+    fun intentToMail() {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:ssrlab221@gmail.com")
+        startActivity(intent)
+    }
+
     fun getMainApplication() = mainApplication
     fun showLanguageDialog(isCancelable: Boolean, additionalAction: (() -> Unit)? = null) {
         initLanguageDialog(isCancelable, additionalAction)

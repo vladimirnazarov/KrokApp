@@ -27,5 +27,10 @@ class ContactsFragment: BaseFragment() {
         super.onResume()
 
         mainActivity.setToolbar(resources.getString(R.string.about_us), true)
+
+        binding.apply {
+            contactsDeveloperLink.setOnClickListener { mainActivity.intentToWeb() }
+            contactsContactLink.setOnClickListener { mainActivity.intentToMail() }
+        }
     }
 }

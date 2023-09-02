@@ -18,7 +18,7 @@ class PointListAdapter(
     private val pointList: ArrayList<PointObject>,
     private val favouriteList: ArrayList<FavouriteObject>,
     private val mainActivity: MainActivity,
-    private val action: (Int) -> Unit
+    private val action: (PointObject) -> Unit
 ) : RecyclerView.Adapter<PointListAdapter.PointListHolder>() {
 
     inner class PointListHolder(item: View) : RecyclerView.ViewHolder(item)
@@ -54,7 +54,7 @@ class PointListAdapter(
             }
         }
 
-        itemView.setOnClickListener { action(item.id) }
+        itemView.setOnClickListener { action(item) }
         itemView.findViewById<ImageView>(R.id.rv_item_logo).load(item.logo)
         itemView.findViewById<TextView>(R.id.rv_item_title).text = item.name
     }
