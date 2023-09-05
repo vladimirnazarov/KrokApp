@@ -58,9 +58,8 @@ class PointListFragment: BaseFragment() {
 
                 runOnUiThread {
                     adapter = PointListAdapter(newPointList, favouriteList as ArrayList<FavouriteObject>, mainActivity) {
-                        val bundle = Bundle()
-                        bundle.putInt("point_object", it)
-                        findNavController().navigate(R.id.exhibitFragment, bundle)
+                        exhibitVM.setPointObject(it)
+                        findNavController().navigate(R.id.exhibitFragment)
                     }
                     binding.rvSecondary.layoutManager = LinearLayoutManager(this@apply)
                     binding.rvSecondary.adapter = adapter

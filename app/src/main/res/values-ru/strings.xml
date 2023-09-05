@@ -11,6 +11,14 @@
     <string name="language">Language</string>
     <string name="about_us">About us</string>
     <string name="refresh_data">Refresh data</string>
+    <string name="developer_title">Developer</string>
+    <string name="developer_info">Speech Synthesis and Recognition Laboratory of United Institute of Informatics Problems of National Academy of Sciences of Belarus</string>
+    <string name="developer_link"><u>https://ssrlab.by</u></string>
+    <string name="content_title">Content</string>
+    <string name="content_info">The content is prepared with the help of the specialists from the Institute of History of the National Academy of Sciences of Belarus</string>
+    <string name="contact_title">Contact</string>
+    <string name="contact_info">Please, send your proposals, comments and wishes:</string>
+    <string name="contact_link"><u>ssrlab221@gmail.com</u></string>
 
     <!--  Language  -->
     <string name="choose_language">Choose language</string>
@@ -26,4 +34,5 @@
     <string name="favourites">Favourites</string>
     <string name="you_havent_added">You haven\'t added any point</string>
     <string name="exhibit">Exhibit</string>
+    <string name="duration_plug">00:00</string>
 </resources>
