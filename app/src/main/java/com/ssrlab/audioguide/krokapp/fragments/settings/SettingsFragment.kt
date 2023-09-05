@@ -28,13 +28,13 @@ class SettingsFragment: BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        mainActivity.setToolbar(resources.getString(R.string.settings)) {}
+        mainActivity.setToolbar(resources.getString(R.string.settings))
     }
 
     private fun setUpBinding() {
         binding.apply {
             settingsButtonContacts.setOnClickListener { navController.navigate(R.id.contactsFragment) }
-            settingsButtonLanguage.setOnClickListener { mainActivity.showLanguageDialog(true) }
+            settingsButtonLanguage.setOnClickListener { mainActivity.showLanguageDialog(true) { mainActivity.intentToSplash() } }
         }
     }
 }

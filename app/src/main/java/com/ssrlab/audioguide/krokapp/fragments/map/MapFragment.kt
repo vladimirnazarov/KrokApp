@@ -20,8 +20,12 @@ class MapFragment: BaseFragment() {
 
         binding = FragmentMapBinding.inflate(layoutInflater)
 
-        mainActivity.setToolbar(resources.getString(R.string.map)){}
-
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        mainActivity.setToolbar(resources.getString(R.string.map))
     }
 }
