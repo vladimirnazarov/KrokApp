@@ -12,13 +12,13 @@
     <string name="about_us">О нас</string>
     <string name="refresh_data">Обновить данные</string>
     <string name="developer_title">Разработчик</string>
-    <string name="developer_info">Лаборатория синтеза и распознавания речи Института проблем информатики Национальной академии наук Беларуси</string>
+    <string name="developer_info">Лаборатория синтеза и распознавания речи Объединенного института проблем информатики Национальной академии наук Беларуси</string>
     <string name="developer_link"><u>https://ssrlab.by</u></string>
     <string name="content_title">Содержание</string>
     <string name="content_info">Содержание подготовлено с помощью специалистов Института истории Национальной академии наук Беларуси</string>
     <string name="contact_title">Контакты</string>
     <string name="contact_info">Пожалуйста, отправьте ваши предложения, комментарии и пожелания:</string>
-    <string name="contact_link"><u>ssrlab221@gmail.com</u></string>
+    <string name="contact_link"><u>travel.krokam@gmail.com</u></string>
 
     <!--  Language  -->
     <string name="choose_language">Выберите язык</string>
