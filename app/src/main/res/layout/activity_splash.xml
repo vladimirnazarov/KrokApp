@@ -33,7 +33,6 @@
 
         android:visibility="gone"
 
-        android:text="@string/please_wait"
         android:textColor="@color/gray_dark"
         android:textSize="14sp"
 

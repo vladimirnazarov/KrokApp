@@ -43,9 +43,8 @@ object AdditionalClient {
 
                         scope.launch {
                             additionalDao.insert(additionalObject)
+                            onSuccess(additionalObject)
                         }
-
-                        onSuccess(additionalObject)
                     }
                 }
             }

@@ -45,6 +45,19 @@ class ExhibitFragment: BaseFragment() {
 
         mainActivity.setToolbar(resources.getString(R.string.exhibit), isBackButtonShown = true)
 
+        if (exhibitVM.getButtonValue()) {
+            binding.exhibitShowOnTheMap.apply {
+                visibility = View.VISIBLE
+                setOnClickListener {
+                    exhibitVM.setCurrentObject(mainPartOfObject)
+                    mainActivity.getController().navigate(R.id.map_graph)
+                }
+            }
+        } else {
+            binding.exhibitShowOnTheMap.visibility = View.GONE
+            mainActivity.controlNavigationUi(false)
+        }
+
         mainPartOfObject = exhibitVM.getPointObject()
         scope.launch {
 
@@ -66,6 +79,7 @@ class ExhibitFragment: BaseFragment() {
         super.onStop()
 
         playerViewModel.mpPause()
+        if (!exhibitVM.getButtonValue()) mainActivity.controlNavigationUi(true)
     }
 
     private fun loadObject() {
