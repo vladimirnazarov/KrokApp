@@ -189,7 +189,7 @@ class MainActivity : AppCompatActivity() {
 
     fun intentToMail() {
         val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:ssrlab221@gmail.com")
+        intent.data = Uri.parse("mailto:travel.krokam@gmail.com")
         startActivity(intent)
     }
 

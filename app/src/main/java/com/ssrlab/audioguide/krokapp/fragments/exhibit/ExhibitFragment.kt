@@ -43,7 +43,21 @@ class ExhibitFragment: BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        mainActivity.setToolbar(resources.getString(R.string.exhibit), isBackButtonShown = true)
+        setUpData()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        playerViewModel.mpPause()
+        if (!exhibitVM.getButtonValue()) mainActivity.controlNavigationUi(true)
+    }
+
+    private fun setUpData() {
+
+        val title = arguments?.getString("point_title")
+        if (title != null) mainActivity.setToolbar(title, isBackButtonShown = true)
+        else mainActivity.setToolbar(resources.getString(R.string.exhibit), isBackButtonShown = true)
 
         if (exhibitVM.getButtonValue()) {
             binding.exhibitShowOnTheMap.apply {
@@ -75,13 +89,6 @@ class ExhibitFragment: BaseFragment() {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-
-        playerViewModel.mpPause()
-        if (!exhibitVM.getButtonValue()) mainActivity.controlNavigationUi(true)
-    }
-
     private fun loadObject() {
         val imagesMap = additionalPartOfObject?.images
         val imageSource = arrayListOf<String>()
@@ -89,8 +96,6 @@ class ExhibitFragment: BaseFragment() {
 
         if (additionalPartOfObject != null) {
             mainActivity.runOnUiThread {
-                binding.exhibitTitle.text = mainPartOfObject.name
-
                 var description = additionalPartOfObject!!.description
                 description = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY).toString()
                 binding.exhibitDescription.text = description

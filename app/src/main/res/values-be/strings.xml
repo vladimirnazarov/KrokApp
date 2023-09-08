@@ -9,16 +9,16 @@
 
     <!--  Settings  -->
     <string name="language">Мова</string>
-    <string name="about_us">Аб нас</string>
+    <string name="about_us">Пра нас</string>
     <string name="refresh_data">Абнавіць даныя</string>
     <string name="developer_title">Распрацоўшчык</string>
-    <string name="developer_info">Лабараторыя сінтэзу і распазнавання мовы Інстытута праблем інфарматыкі Нацыянальнай акадэміі навук Беларусі</string>
+    <string name="developer_info">Лабараторыя сінтэзу і распазнавання маўлення Аб\'яднанага інстытута праблем інфарматыкі Нацыянальнай акадэміі навук Беларусі</string>
     <string name="developer_link"><u>https://ssrlab.by</u></string>
     <string name="content_title">Змест</string>
     <string name="content_info">Змест падрыхтаваны з дапамогай спецыялістаў Інстытута гісторыі Нацыянальнай акадэміі навук Беларусі</string>
     <string name="contact_title">Кантакты</string>
     <string name="contact_info">Калі ласка, дасылаце вашы прапановы, каментары і пажаданні:</string>
-    <string name="contact_link"><u>ssrlab221@gmail.com</u></string>
+    <string name="contact_link"><u>travel.krokam@gmail.com</u></string>
 
     <!--  Language  -->
     <string name="choose_language">Выберыце мову</string>
@@ -27,7 +27,7 @@
     <string name="ru">Русский</string>
 
     <!--  Splash  -->
-    <string name="please_wait">Калі ласка, пачакайце, пакуль мы збярэм адзіныя даныя прыкладання</string>
+    <string name="please_wait">Калі ласка, пачакайце, пакуль мы збярэм усе даныя прыкладання</string>
 
     <!--  Points  -->
     <string name="points">Месцы</string>

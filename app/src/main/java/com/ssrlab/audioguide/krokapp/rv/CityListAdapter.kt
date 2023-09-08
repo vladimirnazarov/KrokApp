@@ -16,7 +16,7 @@ import com.ssrlab.audioguide.krokapp.db.objects.CityObject
 class CityListAdapter(
     private val list: ArrayList<CityObject>,
     private val mainActivity: MainActivity,
-    private val action: (List<Int>) -> Unit
+    private val action: (List<Int>, String) -> Unit
 ) : RecyclerView.Adapter<CityListAdapter.CityListHolder>() {
 
     inner class CityListHolder(item: View) : RecyclerView.ViewHolder(item)
@@ -33,7 +33,7 @@ class CityListAdapter(
         if (position < 6) itemView.findViewById<ConstraintLayout>(R.id.rv_item_holder).background = ContextCompat.getDrawable(mainActivity, R.drawable.background_rounded_orange_item)
         else itemView.findViewById<ConstraintLayout>(R.id.rv_item_holder).background = ContextCompat.getDrawable(mainActivity, R.drawable.background_rounded_item)
 
-        itemView.setOnClickListener { action(item.points) }
+        itemView.setOnClickListener { action(item.points, list[position].name) }
         itemView.findViewById<ImageView>(R.id.rv_item_logo).load(item.logo)
         itemView.findViewById<TextView>(R.id.rv_item_title).text = item.name
     }

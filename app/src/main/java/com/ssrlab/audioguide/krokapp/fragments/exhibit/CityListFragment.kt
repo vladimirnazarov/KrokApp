@@ -44,13 +44,14 @@ class CityListFragment: BaseFragment() {
                 for (i in list) if (i.language == this@apply.getMainApplication().getLocaleString()) newList.add(i)
 
                 runOnUiThread {
-                    adapter = CityListAdapter(newList, mainActivity) {
+                    adapter = CityListAdapter(newList, mainActivity) { list, title ->
                         val pointList = ArrayList<Int>()
 
-                        for (i in it) pointList.add(i)
+                        for (i in list) pointList.add(i)
 
                         val bundle = Bundle()
                         bundle.putIntegerArrayList("point_list", pointList)
+                        bundle.putString("point_list_title", title)
 
                         findNavController().navigate(R.id.pointListFragment, bundle)
                     }

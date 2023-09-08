@@ -37,32 +37,44 @@ class PointListFragment: BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        mainActivity.setToolbar(resources.getString(R.string.points), isBackButtonShown = true, isFavouritesButtonShow = true) {
-            findNavController().navigate(R.id.favouritesListFragment)
-        }
+        setUpData()
+    }
 
+    private fun setUpData() {
         mainActivity.apply {
-            getScope().launch {
+            scope.launch {
                 val newPointList = arrayListOf<PointObject>()
                 val pointIdsList = arguments?.getIntegerArrayList("point_list")
 
                 val pointList = pointIdsList?.let { mainActivity.pointDao().getPoints(it) }
-
                 if (pointList != null) {
                     for (i in pointList) {
                         if (i.language == this@apply.getMainApplication().getLocaleString()) newPointList.add(i)
                     }
                 }
 
+                val pointListTitle = arguments?.getString("point_list_title")
+                runOnUiThread {
+                    if (pointListTitle != null) mainActivity.setToolbar(pointListTitle, isBackButtonShown = true, isFavouritesButtonShow = true) {
+                        findNavController().navigate(R.id.favouritesListFragment)
+                    }
+                    else mainActivity.setToolbar(resources.getString(R.string.points), isBackButtonShown = true, isFavouritesButtonShow = true) {
+                        findNavController().navigate(R.id.favouritesListFragment)
+                    }
+                }
+
                 val favouriteList = mainActivity.favouriteDao().getFavourites()
 
                 runOnUiThread {
-                    adapter = PointListAdapter(newPointList, favouriteList as ArrayList<FavouriteObject>, mainActivity) {
+                    adapter = PointListAdapter(newPointList, favouriteList as ArrayList<FavouriteObject>, mainActivity) { list, title ->
                         exhibitVM.apply {
-                            setPointObject(it)
+                            setPointObject(list)
                             setButtonValue(true)
                         }
-                        findNavController().navigate(R.id.exhibitFragment)
+
+                        val bundle = Bundle()
+                        bundle.putString("point_title", title)
+                        findNavController().navigate(R.id.exhibitFragment, bundle)
                     }
                     binding.rvSecondary.layoutManager = LinearLayoutManager(this@apply)
                     binding.rvSecondary.adapter = adapter
