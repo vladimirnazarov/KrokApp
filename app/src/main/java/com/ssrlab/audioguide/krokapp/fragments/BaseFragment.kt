@@ -7,12 +7,16 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.ssrlab.audioguide.krokapp.MainActivity
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 open class BaseFragment: Fragment() {
 
     lateinit var mainActivity: MainActivity
     lateinit var navController: NavController
     lateinit var scope: CoroutineScope
+
+    var mainScope = CoroutineScope(Dispatchers.Main + Job())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

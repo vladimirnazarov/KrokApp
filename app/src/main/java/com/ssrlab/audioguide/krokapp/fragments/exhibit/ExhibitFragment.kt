@@ -17,6 +17,7 @@ import com.ssrlab.audioguide.krokapp.fragments.BaseFragment
 import com.ssrlab.audioguide.krokapp.rv.tab.ExhibitTabAdapter
 import com.ssrlab.audioguide.krokapp.vm.ExhibitViewModel
 import com.ssrlab.audioguide.krokapp.vm.PlayerViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class ExhibitFragment: BaseFragment() {
@@ -107,9 +108,12 @@ class ExhibitFragment: BaseFragment() {
                 if (additionalPartOfObject!!.audio != "null") {
                     binding.exhibitPlayerHolder.visibility = View.VISIBLE
 
-                    playerViewModel.initializeMediaPlayer(additionalPartOfObject!!.audio, binding)
-                    binding.exhibitPlayerButton.setOnClickListener {
-                        playerViewModel.playAudio(binding)
+                    mainScope.launch {
+                        delay(300)
+                        playerViewModel.initializeMediaPlayer(additionalPartOfObject!!.audio, binding)
+                        binding.exhibitPlayerButton.setOnClickListener {
+                            playerViewModel.playAudio(binding)
+                        }
                     }
                 }
             }
